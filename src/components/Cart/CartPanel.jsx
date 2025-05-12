@@ -30,15 +30,6 @@ const CartPanel = () => {
           <Typography>Subtotal</Typography>
           <Typography>₹0.00</Typography>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-          <Typography>Tax (18%)</Typography>
-          <Typography>₹0.00</Typography>
-        </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
-          <Typography variant="h6">Total</Typography>
-          <Typography variant="h6">₹0.00</Typography>
-        </Box>
-
         <Button
           variant="contained"
           fullWidth
@@ -46,13 +37,6 @@ const CartPanel = () => {
           sx={{ mb: 2 }}
         >
           Proceed to Payment
-        </Button>
-        <Button
-          variant="outlined"
-          fullWidth
-          startIcon={<Printer />}
-        >
-          Print Invoice
         </Button>
       </Box>
     </CartPanelRoot>

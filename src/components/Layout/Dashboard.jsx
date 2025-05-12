@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import CartPanel from '../Cart/CartPanel';
