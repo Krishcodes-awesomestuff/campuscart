@@ -1,0 +1,1 @@
+Let's remove or change the UI for the CART. I am thinking maybe like let's totally remove the cart panel and when user clicks add to cart button a pop up button checkout at the bottom right when that CTA is clicked it will take us to the cart page.

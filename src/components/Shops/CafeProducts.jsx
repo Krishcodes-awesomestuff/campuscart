@@ -5,45 +5,53 @@ import { Plus, Minus, ShoppingCart, Coffee, GlassWater, Coffee as CoffeeCup, San
 
 const CategoryNav = styled(Box)({
   display: 'flex',
-  gap: '16px',
-  padding: '16px',
-  margin: '0 -16px',
+  gap: '12px',
+  padding: '20px',
+  marginBottom: '32px',
   overflowX: 'auto',
-  backgroundColor: '#f8f9fa',
-  borderRadius: '12px',
+  backgroundColor: '#ffffff',
+  borderRadius: '16px',
+  boxShadow: '0 2px 12px rgba(0, 0, 0, 0.03)',
+  border: '1px solid rgba(0, 0, 0, 0.06)',
   '&::-webkit-scrollbar': {
     display: 'none'
-  },
-  msOverflowStyle: 'none',
-  scrollbarWidth: 'none'
+  }
 });
 
 const CategoryButton = styled(Button)(({ theme, active }) => ({
   minWidth: '140px',
   padding: '10px 20px',
-  borderRadius: '10px',
-  backgroundColor: active ? theme.palette.primary.main : '#fff',
-  color: active ? '#fff' : theme.palette.text.primary,
-  border: active ? 'none' : '1px solid #e0e0e0',
+  borderRadius: '12px',
+  justifyContent: 'flex-start',
+  textAlign: 'left',
+  color: active ? '#ffffff' : '#2c3e50',
+  backgroundColor: active ? theme.palette.primary.main : '#ffffff',
+  border: active ? 'none' : '1px solid #edf2f7',
   boxShadow: active ? '0 4px 12px rgba(76, 175, 80, 0.2)' : 'none',
   '&:hover': {
-    backgroundColor: active ? theme.palette.primary.dark : '#f5f5f5',
+    backgroundColor: active ? theme.palette.primary.dark : '#f8fafc',
     transform: 'translateY(-2px)',
-    transition: 'all 0.2s ease'
-  }
+    boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+  },
+  '& .MuiButton-startIcon': {
+    marginRight: '12px',
+    color: active ? '#ffffff' : '#4a5568'
+  },
+  transition: 'all 0.2s ease'
 }));
 
 const ProductCard = styled(Card)({
-  height: '220px',
+  height: '240px',
   width: '100%',
-  borderRadius: '16px',
-  border: '1px solid #f0f0f0',
+  borderRadius: '20px',
+  border: '1px solid rgba(0, 0, 0, 0.06)',
   backgroundColor: '#ffffff',
-  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+  boxShadow: '0 2px 12px rgba(0, 0, 0, 0.03)',
   transition: 'all 0.3s ease',
+  overflow: 'hidden',
   '&:hover': {
     transform: 'translateY(-4px)',
-    boxShadow: '0 12px 24px rgba(0,0,0,0.08)'
+    boxShadow: '0 12px 24px rgba(0, 0, 0, 0.06)'
   }
 });
 
@@ -54,19 +62,6 @@ const ProductContent = styled(CardContent)({
   flexDirection: 'column',
   justifyContent: 'space-between',
   gap: '12px'
-});
-
-// Add a badge for popular items or special offers
-const Badge = styled(Box)({
-  position: 'absolute',
-  top: '12px',
-  right: '12px',
-  padding: '4px 8px',
-  borderRadius: '6px',
-  backgroundColor: '#ff5722',
-  color: '#fff',
-  fontSize: '0.75rem',
-  fontWeight: 600
 });
 
 const ProductTitle = styled(Typography)({
@@ -94,27 +89,6 @@ const ProductPrice = styled(Typography)({
   marginBottom: '8px'
 });
 
-const QuantityButton = styled(Button)({
-  minWidth: '32px',
-  height: '32px',
-  padding: 0,
-  borderRadius: '50%',
-  border: '1px solid #e0e0e0',
-  '&:hover': {
-    border: '1px solid #4CAF50',
-    backgroundColor: 'rgba(76, 175, 80, 0.04)'
-  }
-});
-
-const QuantityText = styled(Typography)({
-  fontFamily: '"Inter", sans-serif',
-  fontSize: '0.9rem',
-  fontWeight: 500,
-  color: '#1a1a1a',
-  width: '32px',
-  textAlign: 'center'
-});
-
 const products = [
   {
     id: 1,
@@ -139,37 +113,37 @@ const products = [
   },
   {
     id: 4,
-    name: 'Cafe Mocha',
-    price: 169,
-    description: 'Coffee with chocolate and milk',
+    name: 'Americano',
+    price: 129,
+    description: 'Espresso with hot water',
     category: 'Hot Coffees'
   },
   {
     id: 5,
     name: 'Filter Coffee',
-    price: 129,
-    description: 'South Indian style coffee',
+    price: 119,
+    description: 'Traditional South Indian filter coffee',
     category: 'Hot Coffees'
   },
   {
     id: 6,
-    name: 'Classic Cold Coffee',
-    price: 179,
-    description: 'Chilled coffee with ice cream',
-    category: 'Cold Beverages'
-  },
-  {
-    id: 7,
     name: 'Iced Latte',
     price: 169,
     description: 'Chilled espresso with milk',
     category: 'Cold Beverages'
   },
   {
+    id: 7,
+    name: 'Cold Coffee',
+    price: 179,
+    description: 'Blended coffee with ice cream',
+    category: 'Cold Beverages'
+  },
+  {
     id: 8,
-    name: "Devil's Own",
-    price: 199,
-    description: 'Signature cold coffee with chocolate',
+    name: 'Frappe',
+    price: 189,
+    description: 'Blended coffee with whipped cream',
     category: 'Cold Beverages'
   },
   {
@@ -183,35 +157,49 @@ const products = [
     id: 10,
     name: 'Green Tea',
     price: 99,
-    description: 'Healthy green tea',
+    description: 'Pure green tea leaves',
     category: 'Tea & Other Drinks'
   },
   {
     id: 11,
-    name: 'Veg Cheese Sandwich',
+    name: 'Hot Chocolate',
     price: 149,
-    description: 'Grilled sandwich with vegetables and cheese',
-    category: 'Snacks & Quick Bites'
+    description: 'Rich chocolate with steamed milk',
+    category: 'Tea & Other Drinks'
   },
   {
     id: 12,
-    name: 'Chicken Tikka Sandwich',
-    price: 169,
-    description: 'Grilled sandwich with spiced chicken',
+    name: 'Veg Sandwich',
+    price: 129,
+    description: 'Grilled vegetables with cheese',
     category: 'Snacks & Quick Bites'
   },
   {
     id: 13,
-    name: 'Brownie with Chocolate Sauce',
+    name: 'Chicken Sandwich',
+    price: 149,
+    description: 'Grilled chicken with mayo',
+    category: 'Snacks & Quick Bites'
+  },
+  {
+    id: 14,
+    name: 'French Fries',
+    price: 99,
+    description: 'Crispy potato fries',
+    category: 'Snacks & Quick Bites'
+  },
+  {
+    id: 15,
+    name: 'Chocolate Brownie',
     price: 129,
     description: 'Warm chocolate brownie',
     category: 'Desserts'
   },
   {
-    id: 14,
-    name: 'Red Velvet Slice',
+    id: 16,
+    name: 'Red Velvet Cake',
     price: 149,
-    description: 'Classic red velvet cake',
+    description: 'Classic red velvet cake slice',
     category: 'Desserts'
   }
 ];
@@ -234,19 +222,24 @@ const CafeProducts = () => {
     : products.filter(product => product.category === selectedCategory);
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ 
+      p: 3,
+      backgroundColor: '#f8fafc',
+      minHeight: '100vh'
+    }}>
       <Typography 
-            variant="h4" 
-            sx={{ 
-              fontFamily: '"Inter", sans-serif',
-              fontSize: '1.75rem',
-              fontWeight: 700,
-              color: '#000000',
-              mb: 2
-            }}
-          >
-            Cafe Coffee Day
-          </Typography>
+        variant="h4" 
+        sx={{ 
+          fontFamily: '"Inter", sans-serif',
+          fontSize: '2rem',
+          fontWeight: 700,
+          color: '#000000',
+          mb: 4,
+          letterSpacing: '-0.5px'
+        }}
+      >
+        Cafe Coffee Day
+      </Typography>
 
       <CategoryNav>
         {categories.map((category) => (
@@ -261,71 +254,51 @@ const CafeProducts = () => {
         ))}
       </CategoryNav>
 
-      <Box sx={{ maxWidth: '1200px', mx: 'auto', p: 2 }}>
-        <Grid container spacing={2.5} sx={{ mt: 2, position: 'relative', minHeight: '200px' }}>
-          {loading ? (
-            <Box sx={{ 
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <CircularProgress />
-            </Box>
-          ) : (
-            filteredProducts.map((product) => (
-              <Grid item xs={12} sm={6} md={4} key={product.id}>
-                <ProductCard>
-                  <ProductContent>
-                    <Box>
-                      <ProductTitle>{product.name}</ProductTitle>
-                      <ProductDescription 
-                        sx={{ 
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                        }}
-                      >
-                        {product.description}
-                      </ProductDescription>
-                    </Box>
-                    
-                    <Box>
-                      <ProductPrice sx={{ mb: 1 }}>₹{product.price}</ProductPrice>
-                      <Button
-                        variant="contained"
-                        startIcon={<ShoppingCart size={16} />}
-                        fullWidth
-                        sx={{ 
-                          py: 0.75,
-                          fontFamily: '"Inter", sans-serif',
-                          fontSize: '0.9rem',
-                          fontWeight: 500,
-                          textTransform: 'none',
-                          borderRadius: '10px',
-                          background: 'linear-gradient(45deg, #4CAF50 30%, #66BB6A 90%)',
-                          boxShadow: 'none',
-                          '&:hover': {
-                            background: 'linear-gradient(45deg, #43A047 30%, #4CAF50 90%)',
-                            boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)',
-                            transform: 'translateY(-1px)'
-                          }
-                        }}
-                      >
-                        Add to Cart
-                      </Button>
-                    </Box>
-                  </ProductContent>
-                </ProductCard>
-              </Grid>
-            ))
-          )}
+      <Box sx={{ 
+        maxWidth: '1400px', 
+        mx: 'auto',
+        px: 2 
+      }}>
+        <Grid container spacing={3} sx={{ mt: 2 }}>
+          {filteredProducts.map((product) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+              <ProductCard>
+                <ProductContent>
+                  <Box>
+                    <ProductTitle>{product.name}</ProductTitle>
+                    <ProductDescription>
+                      {product.description}
+                    </ProductDescription>
+                  </Box>
+                  <Box>
+                    <ProductPrice>₹{product.price}</ProductPrice>
+                    <Button
+                      variant="contained"
+                      startIcon={<ShoppingCart size={16} />}
+                      fullWidth
+                      sx={{ 
+                        py: 1.2,
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: '0.95rem',
+                        fontWeight: 600,
+                        textTransform: 'none',
+                        borderRadius: '12px',
+                        background: 'linear-gradient(45deg, #4CAF50 30%, #66BB6A 90%)',
+                        boxShadow: 'none',
+                        '&:hover': {
+                          background: 'linear-gradient(45deg, #43A047 30%, #4CAF50 90%)',
+                          boxShadow: '0 6px 16px rgba(76, 175, 80, 0.3)',
+                          transform: 'translateY(-1px)'
+                        }
+                      }}
+                    >
+                      Add to Cart
+                    </Button>
+                  </Box>
+                </ProductContent>
+              </ProductCard>
+            </Grid>
+          ))}
         </Grid>
       </Box>
     </Box>
