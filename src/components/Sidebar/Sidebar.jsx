@@ -107,10 +107,18 @@ const Sidebar = () => {
           fontFamily: '"Inter", sans-serif',
           fontWeight: 500,
           textTransform: 'none',
+          color: 'rgb(239, 68, 68)',
           border: '1px solid rgba(239, 68, 68, 0.5)',
           '&:hover': {
-            backgroundColor: 'rgba(239, 68, 68, 0.04)',
-            border: '1px solid rgb(239, 68, 68)'
+            backgroundColor: 'rgb(239, 68, 68)',
+            border: '1px solid rgb(239, 68, 68)',
+            color: '#ffffff',
+            '& .MuiButton-startIcon': {
+              color: '#ffffff'
+            }
+          },
+          '& .MuiButton-startIcon': {
+            color: 'rgb(239, 68, 68)'
           }
         }}
       >
